@@ -13,5 +13,10 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<!--  <app-explore-container name="Hola"></app-explore-container>-->
+  <app-gatito></app-gatito>
+
+  <ion-button [routerLink]="['/tabs/nueva/pagina']" > ir a nueva pagina</ion-button>
+  <ion-button (click)="irANuevaPagina()"> ir a nueva pagina 2</ion-button>
+
 </ion-content>

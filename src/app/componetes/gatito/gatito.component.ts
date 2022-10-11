@@ -1,0 +1,45 @@
+import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+
+@Component({
+  selector: 'app-gatito',
+  templateUrl: './gatito.component.html',
+  styleUrls: ['./gatito.component.scss'],
+})
+export class GatitoComponent implements OnInit {
+  public varible1: number;
+  public varible2: number;
+  public resultado: number;
+
+  constructor(private alertController: AlertController) {
+  }
+
+  ngOnInit() {
+  }
+  suma(){
+    this.resultado = this.varible1 + this.varible2;
+  }
+
+  dividir(){
+    this.resultado = this.varible1/this.varible2;
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Alerta',
+      subHeader: 'Mensaje importante',
+      message: 'esto es una alerta!',
+      buttons: ['pues que chido'],
+    });
+
+    await alert.present();
+  }
+
+  correr(){
+    console.log('metodo correr');
+  }
+
+  maullar(){
+    console.log('metodo maullar');
+  }
+}

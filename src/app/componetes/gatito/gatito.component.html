@@ -1,0 +1,19 @@
+
+<ion-item>
+  <ion-label>Dato 1</ion-label>
+  <ion-input [(ngModel)]="varible1" type="number"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>Dato 2</ion-label>
+  <ion-input [(ngModel)]="varible2" type="number"></ion-input>
+</ion-item>
+<ion-button (click)="suma()">Sumar</ion-button>
+<ion-button (click)="dividir()">Dividir</ion-button>
+
+<br>
+<br>
+<br>
+<br>
+resultado: {{resultado}}
+
+<ion-button (click)="presentAlert()">Alerta</ion-button>
