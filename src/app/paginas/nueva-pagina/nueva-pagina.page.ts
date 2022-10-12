@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AlertController} from '@ionic/angular';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-nueva-pagina',
@@ -8,11 +9,38 @@ import {AlertController} from '@ionic/angular';
 })
 export class NuevaPaginaPage implements OnInit,OnDestroy {
 
-  constructor(private alertController: AlertController) {
-    this.presentAlert();
+  public isModalOpen = false;
+
+  public nombre: string;
+  public nombreQuery: string;
+  public edad: number;
+
+  constructor(
+    private alertController: AlertController,
+    private url: ActivatedRoute
+  ) {
+
   }
 
   ngOnInit() {
+    this.url.params.subscribe(
+      params => {
+        this.nombre = params.nombre;
+        this.edad = parseInt(params.edad);
+      },
+      error => {},
+      () =>{
+      }
+    );
+    this.url.queryParams.subscribe(
+      params => {
+        this.nombreQuery = params.nombre;
+      },
+      error => {},
+      () =>{
+      }
+    );
+    this.presentAlert();
   }
 
   ngOnDestroy() {
@@ -22,12 +50,16 @@ export class NuevaPaginaPage implements OnInit,OnDestroy {
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Alerta',
-      subHeader: 'Mensaje importante',
-      message: 'esto es una alerta!',
+      subHeader: 'Bienvenido',
+      message: this.nombre+' '+(this.edad+5),
       buttons: ['pues que chido'],
     });
 
     await alert.present();
+  }
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
 
 }

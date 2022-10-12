@@ -20,7 +20,7 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
-        path: 'nueva/pagina',
+        path: 'nueva/pagina/:nombre/:edad',
         loadChildren: () => import('../paginas/nueva-pagina/nueva-pagina.module').then( m => m.NuevaPaginaPageModule)
       },
       {

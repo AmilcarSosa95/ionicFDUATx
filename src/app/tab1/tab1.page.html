@@ -14,9 +14,14 @@
   </ion-header>
 
 <!--  <app-explore-container name="Hola"></app-explore-container>-->
-  <app-gatito></app-gatito>
+  <app-gatito [dato1]="datoAlHijo" [dato2]="232"  (regrsarAlPadre)="actualizaDatoHijo($event)"></app-gatito>
+  <br>
+  <br>
+  <br>
+  <br>
+  {{datoAlHijo}}
 
-  <ion-button [routerLink]="['/tabs/nueva/pagina']" > ir a nueva pagina</ion-button>
-  <ion-button (click)="irANuevaPagina()"> ir a nueva pagina 2</ion-button>
+<!--  <ion-button [routerLink]="['/tabs/nueva/pagina']" > ir a nueva pagina</ion-button>-->
+  <ion-button class=""  style="" (click)="irANuevaPagina()"> ir a nueva pagina 2</ion-button>
 
 </ion-content>

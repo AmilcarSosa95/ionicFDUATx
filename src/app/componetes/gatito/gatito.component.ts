@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -7,6 +7,14 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./gatito.component.scss'],
 })
 export class GatitoComponent implements OnInit {
+
+
+  @Input() dato1: number;
+  @Input() dato2: number;
+  @Output() regrsarAlPadre = new EventEmitter<number>();
+
+
+
   public varible1: number;
   public varible2: number;
   public resultado: number;
@@ -17,6 +25,7 @@ export class GatitoComponent implements OnInit {
   ngOnInit() {
   }
   suma(){
+    this.regrsarAlPadre.emit(this.dato1);
     this.resultado = this.varible1 + this.varible2;
   }
 

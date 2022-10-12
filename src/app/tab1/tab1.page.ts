@@ -8,12 +8,18 @@ import {Router} from '@angular/router';
 })
 export class Tab1Page {
 
+  public datoAlHijo: number = 10;
+
   constructor(
     private router: Router
   ) {}
 
   irANuevaPagina(){
-    console.log("ir a nuevo link");
-    this.router.navigateByUrl('/tabs/nueva/pagina');
+    this.router.navigate(['/tabs/nueva/pagina','Amilcar', 26], {queryParams: {hola:'adios',  nombre: 'Amilcar***'}});
+    // this.router.navigate(['/tabs/nueva/pagina','Amilcar', 26]);
+  }
+
+  actualizaDatoHijo(evento){
+    console.log(evento);
   }
 }
