@@ -13,6 +13,14 @@ const routes: Routes = [
   {
     path: 'post',
     loadChildren: () => import('./paginas/post/post.module').then( m => m.PostPageModule)
+  },
+  {
+    path: 'post-detalle/:id',
+    loadChildren: () => import('./paginas/post-detalle/post-detalle.module').then( m => m.PostDetallePageModule)
+  },
+  {
+    path: 'empleado-formulario',
+    loadChildren: () => import('./paginas/empleado-formulario/empleado-formulario.module').then( m => m.EmpleadoFormularioPageModule)
   }
 ];
 @NgModule({

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {PostService} from '../../servicios/post.service';
 import {Post} from '../../modelos/post';
+import {Router} from "@angular/router";
+import {Empleado} from "../../modelos/Empleado";
 
 @Component({
   selector: 'app-post',
@@ -9,10 +11,11 @@ import {Post} from '../../modelos/post';
 })
 export class PostPage implements OnInit {
 
-  public lista: Array<Post>;
+  public lista: Array<Empleado>;
   public seleccionado: Post = new Post();
 
   constructor(
+    private router: Router,
     private postServicios: PostService
   ) {
   }
@@ -35,7 +38,7 @@ export class PostPage implements OnInit {
     );
   }
 
-  seleccionar(dato: Post) {
-    this.seleccionado = JSON.parse(JSON.stringify(dato));
+  seleccionar(dato: Empleado) {
+    this.router.navigate(['/post-detalle',dato.empleadoId]);
   }
 }
